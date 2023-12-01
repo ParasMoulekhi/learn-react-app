@@ -4,5 +4,8 @@
 
 .kg-span {
   font-weight: 500;
-  color: aqua;
+  color: blue;
+}
+.button {
+  float: right;
 }
