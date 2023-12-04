@@ -1,8 +1,11 @@
-import { useRef } from "react";
+import { useContext, useRef } from "react";
 import style from "./AddTodo.module.css";
 import { MdAddToQueue } from "react-icons/md";
+import { TodoItemsContext } from "../store/todo-items-store";
 
-function AddTodo({ onNewItem }) {
+function AddTodo() {
+  const { addNewItem } = useContext(TodoItemsContext);
+
   const todoNameElements = useRef();
   const dueDateElements = useRef();
 
@@ -12,10 +15,9 @@ function AddTodo({ onNewItem }) {
     const dueDate = dueDateElements.current.value;
     todoNameElements.current.value = "";
     dueDateElements.current.value = "";
-    onNewItem(todoName, dueDate);
+    addNewItem(todoName, dueDate);
   };
 
-  // Form -> It is use for sending data in server.
   return (
     <div className="container">
       <form className="row kg-row" onSubmit={handleAddButtonClicked}>
