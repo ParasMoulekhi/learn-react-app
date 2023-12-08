@@ -1,3 +1,5 @@
+import { useMemo } from "react";
+import { useCallback } from "react";
 import { createContext, useReducer } from "react";
 
 export const PostList = createContext({
@@ -25,28 +27,38 @@ const PostListProvider = ({ children }) => {
     DEFAULT_POST_LIST
   );
 
-  const addPost = (userId, postTitle, postBody, reactions, tags) => {
-    dispatchPostList({
-      type: "ADD_POST",
-      payload: {
-        id: Date.now(),
-        title: postTitle,
-        body: postBody,
-        reactions: reactions,
-        userId: userId,
-        tags: tags,
-      },
-    });
-  };
+  const addPost = useCallback(
+    (userId, postTitle, postBody, reactions, tags) => {
+      dispatchPostList({
+        type: "ADD_POST",
+        payload: {
+          id: Date.now(),
+          title: postTitle,
+          body: postBody,
+          reactions: reactions,
+          userId: userId,
+          tags: tags,
+        },
+      });
+    },
+    [dispatchPostList]
+  );
 
-  const deletePost = (postId) => {
-    dispatchPostList({
-      type: "DELETE_POST",
-      payload: {
-        postId,
-      },
-    });
-  };
+  const arr = [5, 2, 6, 7, 4];
+  const sortedArr = useMemo(() => arr.sort(), [arr]);
+  console.log(sortedArr);
+
+  const deletePost = useCallback(
+    (postId) => {
+      dispatchPostList({
+        type: "DELETE_POST",
+        payload: {
+          postId,
+        },
+      });
+    },
+    [dispatchPostList]
+  );
   return (
     <PostList.Provider value={{ postList, addPost, deletePost }}>
       {children}
