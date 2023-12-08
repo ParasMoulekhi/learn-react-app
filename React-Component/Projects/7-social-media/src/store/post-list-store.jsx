@@ -44,10 +44,6 @@ const PostListProvider = ({ children }) => {
     [dispatchPostList]
   );
 
-  const arr = [5, 2, 6, 7, 4];
-  const sortedArr = useMemo(() => arr.sort(), [arr]);
-  console.log(sortedArr);
-
   const deletePost = useCallback(
     (postId) => {
       dispatchPostList({
