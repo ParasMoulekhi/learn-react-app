@@ -18,7 +18,6 @@ const PostList = () => {
         setFetching(false);
       });
     return () => {
-      console.log("Cleaning up useEffect");
       controller.abort();
     };
   }, []);
