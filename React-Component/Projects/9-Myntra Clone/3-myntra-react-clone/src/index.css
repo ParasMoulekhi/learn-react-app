@@ -47,21 +47,26 @@ header {
 }
 
 .search_bar {
-  height: 40px;
-  min-width: 200px;
+  height: 37px;
+  min-width: 180px;
   width: 30%;
   display: flex;
   align-items: center;
+  position: relative;
 }
 .search_icon {
   box-sizing: content-box;
-  height: 20px;
-  padding: 10px;
+  height: 10px;
+  padding: 5px 11px;
+  position: absolute;
+  top: 0;
+  left: 2px;
 
   background-color: #f5f5f6;
   color: #282c3f;
   font-weight: 300;
   border-radius: 4px 0 0 4px;
+  cursor: pointer;
 }
 .search_input {
   color: #696e79;
@@ -70,6 +75,7 @@ header {
   height: 40px;
   border: 0;
   border-radius: 0 4px 4px 0;
+  padding-left: 46px;
 }
 
 .action_bar {
@@ -82,6 +88,7 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: black;
 }
 
 /* Main section */
@@ -377,4 +384,8 @@ a.action_container:link {
   width: 14px;
   height: 14px;
   cursor: pointer;
+}
+
+.spinner {
+  margin: 100px 0;
 }
