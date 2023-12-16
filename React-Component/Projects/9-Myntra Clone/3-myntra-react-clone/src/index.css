@@ -389,3 +389,10 @@ a.action_container:link {
 .spinner {
   margin: 100px 0;
 }
+
+#navbar {
+  position: sticky;
+  overflow: hidden;
+  top: 0;
+  width: 100%;
+}

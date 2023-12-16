@@ -9,7 +9,7 @@ const Header = () => {
   const bag = useSelector((store) => store.bag);
 
   return (
-    <header>
+    <header id="navbar">
       <div className="logo_container">
         <Link to="/">
           <img
